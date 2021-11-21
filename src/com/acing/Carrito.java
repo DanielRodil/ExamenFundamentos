@@ -3,7 +3,7 @@ package com.acing;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Carrito implements Describible, Valorable {
+public class Carrito {
 	private List<Producto> carrito;
 
 	public List<Producto> getCarrito() {
@@ -22,19 +22,22 @@ public class Carrito implements Describible, Valorable {
 		return this.carrito.contains(producto);
 	}
 	
+	public float getValorCarrito(Carrito carrito) {
+		float valor = 0;
+		for (int i = 0; i < carrito.getCarrito().size(); i++) {
+			valor += carrito.getCarrito().get(i).getPrecio();
+		}
+		return valor;
+	}
+	
+	public void getInformeCarrito(Carrito carrito) {
+		System.out.println(carrito.getCarrito().toString() + "\t El valor de carrito es de: " + 
+				carrito.getValorCarrito(carrito) + " euros");
+	}
+	
 	@Override
 	public String toString() {
-		return "Carrito [carrito=" + carrito + "]";
-	}
-
-	@Override
-	public float getPrecio() {
-		return 0;
-	}
-
-	@Override
-	public String getDescripcion() {
-		return null;
+		return "" + carrito;
 	}
 
 	

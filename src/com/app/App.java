@@ -1,5 +1,6 @@
-package com.app.App;
+package com.app;
 
+import java.util.Comparator;
 import java.util.List;
 
 import com.acing.Carrito;
@@ -16,8 +17,23 @@ public class App {
 		
 		Carrito carrito = new Carrito();
 		carrito.addProducto(producto1);
-		carrito.addProducto(producto4);
-		//System.out.println(carrito);
+		carrito.addProducto(producto2);
+//		System.out.println(carrito.isCargadoProducto(producto4));
+		
+//		carrito.getCarrito().sort(new Comparator<Producto>() {
+//
+//			@Override
+//			public int compare(Producto o1, Producto o2) {
+//				return o1.getPrecio().compareTo(o2.getPrecio());
+//			}
+//		
+//		});
+		carrito.getCarrito().sort(null);
+		carrito.getInformeCarrito(carrito);
+		carrito.addProducto(producto3);
+		carrito.getCarrito().sort(null);
+		System.out.println("");
+		carrito.getInformeCarrito(carrito);
 		
 		
 	}
